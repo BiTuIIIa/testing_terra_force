@@ -37,8 +37,6 @@ const getList = (params) => {
                 }
             } catch (error) {
                 console.error('Error parsing JSON:', error);
-            } finally {
-
             }
         }
     }

@@ -6,7 +6,7 @@
 
     <div class="container mt-5">
         <div class="filter">
-        @include('posts.components.filter',['params' => $params])
+            @include('posts.components.filter',['params' => $params])
         </div>
     </div>
     <div class="list">

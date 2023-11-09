@@ -2,7 +2,6 @@
 
 @section('title', 'Create Post')
 
-
 @section('content')
     <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
         <div class="col-md-6">

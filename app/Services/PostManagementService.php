@@ -2,15 +2,12 @@
 
 namespace App\Services;
 
-
-
 use App\Http\Requests\PostListRequest;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-
 class PostManagementService
 {
-    public function getPosts ($user, PostListRequest $request) : LengthAwarePaginator
+    public function getPosts($user, PostListRequest $request): LengthAwarePaginator
     {
         $query = $user->posts();
 

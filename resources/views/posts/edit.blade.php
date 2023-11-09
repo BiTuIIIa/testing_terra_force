@@ -2,11 +2,10 @@
 
 @section('title', 'Create Post')
 
-
 @section('content')
     <div class="d-flex align-items-center justify-content-center" style="min-height: 100vh;">
         <div class="col-md-6">
-            <div class="card rounded p-5" style="background-color: #f5f5f5;  min-height: 400px" >
+            <div class="card rounded p-5" style="background-color: #f5f5f5;  min-height: 400px">
                 <div class="card-body">
                     <a href="javascript:history.go(-1)" class="btn btn-secondary">Back</a>
                     <h2 class="text-center">Update Post</h2>
@@ -23,7 +22,8 @@
                         </div>
                         <div class="form-group">
                             <label for="content">Content</label>
-                            <textarea class="form-control" id="content" name="content" placeholder="Content" >{{$post->content}}</textarea>
+                            <textarea class="form-control" id="content" name="content"
+                                      placeholder="Content">{{$post->content}}</textarea>
                             @error('content')
                             <div class="alert alert-danger">{{$message}}</div>
                             @enderror

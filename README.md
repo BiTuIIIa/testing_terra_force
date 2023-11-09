@@ -6,6 +6,7 @@ This task was performed as part of the selection for the position of Junior PHP 
 - run command "docker-compose up -d" to start the application container and run it
 - if port conflicts occur, you can pause the local server and MySQL with these commands :
     "sudo systemctl stop nginx" and "sudo systemctl stop mysql" 
+- customize the ENV file according to your environment
 - After starting the containers, you need to do migrations! Firstly, you can get into our application container using this command:
  "docker exec -ti test_terraforce_laravel.test_1 bash", after that you can do migrations "php artisan:migrate"
 - enter the 'localhost' URL and the application will start )

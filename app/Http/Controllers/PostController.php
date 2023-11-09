@@ -19,50 +19,50 @@ class PostController extends Controller
         $this->postManagementService = $postManagementService;
     }
 
-    public function index(PostListRequest $request) : View
+    public function index(PostListRequest $request): View
     {
-        return view('posts.index',[
-            'posts' => $this->postManagementService->getPosts(Auth::user(),$request),
+        return view('posts.index', [
+            'posts' => $this->postManagementService->getPosts(Auth::user(), $request),
             'params' => $request->all()
         ]);
     }
 
-    public function create() : View
+    public function create(): View
     {
         return view('posts.create');
     }
 
-    public function store(PostStoreRequest $request) : RedirectResponse
+    public function store(PostStoreRequest $request): RedirectResponse
     {
         $user = Auth::user();
 
         $user->posts()->create([
             'title' => $request->input('title'),
             'content' => $request->input('content'),
-            'author'=> $request->input('author')
+            'author' => $request->input('author')
         ]);
 
         return redirect(route('posts.index'));
     }
 
-    public function show(Post $post) : View
+    public function show(Post $post): View
     {
-        return view('posts.show',['post' => $post]);
+        return view('posts.show', ['post' => $post]);
     }
 
-    public function edit(Post $post) : View
+    public function edit(Post $post): View
     {
-        return view('posts.edit',['post' => $post]);
+        return view('posts.edit', ['post' => $post]);
     }
 
-    public function update(PostStoreRequest $request, Post $post) : RedirectResponse
+    public function update(PostStoreRequest $request, Post $post): RedirectResponse
     {
         $validateData = $request->validated();
         $post->update($validateData);
         return redirect(route('posts.index'));
     }
 
-    public function destroy(Post $post) : RedirectResponse
+    public function destroy(Post $post): RedirectResponse
     {
         $post->delete();
         return redirect(route('posts.index'));

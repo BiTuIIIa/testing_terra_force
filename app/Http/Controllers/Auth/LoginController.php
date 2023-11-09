@@ -11,13 +11,13 @@ class LoginController extends Controller
 {
     public function index()
     {
-        if (Auth::check()){
+        if (Auth::check()) {
             return redirect(route('user.home'));
         }
         return view('auth.login');
     }
 
-    public function authenticate(LoginRequest $request) : RedirectResponse
+    public function authenticate(LoginRequest $request): RedirectResponse
     {
         $credentials = $request->validated();
 
