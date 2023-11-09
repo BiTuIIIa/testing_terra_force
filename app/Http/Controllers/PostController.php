@@ -36,13 +36,7 @@ class PostController extends Controller
     {
         $user = Auth::user();
 
-        $user->posts()->create([
-            'title' => $request->input('title'),
-            'content' => $request->input('content'),
-            'author' => $request->input('author')
-        ]);
-
-        return redirect(route('posts.index'));
+        return $this->postManagementService->save($user, $request);
     }
 
     public function show(Post $post): View
@@ -58,13 +52,12 @@ class PostController extends Controller
     public function update(PostStoreRequest $request, Post $post): RedirectResponse
     {
         $validateData = $request->validated();
-        $post->update($validateData);
-        return redirect(route('posts.index'));
+
+        return $this->postManagementService->update($validateData, $post);
     }
 
     public function destroy(Post $post): RedirectResponse
     {
-        $post->delete();
-        return redirect(route('posts.index'));
+        return $this->postManagementService->delete($post);
     }
 }
