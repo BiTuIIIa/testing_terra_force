@@ -8,7 +8,7 @@
         <div class="col-md-6">
             <div class="card rounded p-5" style="background-color: #f5f5f5;  min-height: 400px" >
                 <div class="card-body">
-                    <a href="{{ route('posts.index') }}" class="btn btn-secondary">Back</a>
+                    <a href="javascript:history.go(-1)" class="btn btn-secondary">Back</a>
                     <h2 class="text-center">Update Post</h2>
                     <form action="{{route('posts.update', $post->id)}}" method="post">
                         @csrf

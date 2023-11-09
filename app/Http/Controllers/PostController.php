@@ -59,7 +59,7 @@ class PostController extends Controller
     {
         $validateData = $request->validated();
         $post->update($validateData);
-        return redirect(route('posts.show',$post->id));
+        return redirect(route('posts.index'));
     }
 
     public function destroy(Post $post) : RedirectResponse
